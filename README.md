@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+ ### Необходимо реализовать приложение по написанию рецензий на фильмы из серии Star Wars. Необходимо чтобы код для следующего шага подгружался динамически.  
+Шаг 1. Выбор фильма
+Страница состоит из 2х блоков 
+первый блок это список фильмов.
+второй блок это содержание фильма  и логотип.
+api для получения данных:
+Список фильмов берем тут: https://swapi.dev/api/films/
+При выборе конкретного фильма информацию нужно брать тут: https://swapi.dev/api/films/1/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+При быстром перемещении по фильмам должен отображаться только выбранный фильм. На экране не должно быть не актуальных состояний, когда выбрали следующий фильм и в этот момент отобразились данные предыдущего (либо выбранный фильм, либо знак загрузки).
 
-## Available Scripts
+			
+Шаг 2. Написание рецензий
+При переходе на этот шаг, его разметка и логика должны подгружаться на клиент динамически.
+Страница формы* рецензии. Форма состоит из 3х полей. Обработать состояние pending.
+username - input, required
+email - input, required, email mask
+review - textarea, required
 
-In the project directory, you can run:
+* Симулировать запрос отправки формы через:
+new Promise((resolve) => { setTimeout(resolve, 1000) }) 
 
-### `yarn start`
+Шаг 3. Сообщение о успешной отправке
+Поздравить пользователя с успешным прохождением визарда. Отобразить данные введенные им в результате заполнения.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Механизм динамической подгрузки неважен.
+Стилистика и оформление страницы не играет роли при оценке, но желательно использовать css фреймворки(bootstrap, material-ui, etc).
+Из инструментов желательно использовать react.js
+Результат желательно выложить в виде проекта в публичном репозитории(github, bitbucket, etc). 
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
