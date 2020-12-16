@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './FilmsDiteils.css'
+import './FilmsDetails.css'
 
 export const FilmsDiteils = ({filmIndex}) => {
 
