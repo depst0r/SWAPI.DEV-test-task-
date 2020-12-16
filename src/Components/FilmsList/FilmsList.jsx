@@ -2,7 +2,7 @@ import React, {useState ,useEffect } from 'react'
 import './FilmsList.css'
 import { Spinner } from '../Spinner/Spinner'
 
-export const FilmsList = () => {
+export const FilmsList = ({filmSelected}) => {
 
     const [films, setFilms] = useState('')
 
@@ -14,11 +14,15 @@ export const FilmsList = () => {
 
     return<>
         <div>
-            {films ? films.map((film, index) => {
+            {films ? films.map((film, i) => {
                 return (
-                    <ul className="item-list list-group" key={index}>
+                    <ul 
+                    className="item-list list-group" 
+                    key={i}
+                    >
                         <li 
                         className="list-group-item"
+                        onClick={filmSelected(i)}
                         >
                             {film.title}
                         </li>
