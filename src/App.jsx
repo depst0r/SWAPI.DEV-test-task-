@@ -7,15 +7,15 @@ function App() {
 
   const [selected, setSelected] = useState(null)
 
-const filmSelected = id => [
+const filmSelected = id => {
     setSelected(id)
-  ]
+}
 
   return (
     <div className="container">
       <div className='row'>
       <div className="col-sm">
-      {/* <FilmsDiteils/> */}
+      <FilmsDiteils filmIndex={selected}/>
       </div>
       </div>
       <div className='row'>

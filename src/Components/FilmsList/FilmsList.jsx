@@ -22,7 +22,7 @@ export const FilmsList = ({filmSelected}) => {
                     >
                         <li 
                         className="list-group-item"
-                        onClick={filmSelected(i)}
+                        onClick={() => filmSelected(i)}
                         >
                             {film.title}
                         </li>
