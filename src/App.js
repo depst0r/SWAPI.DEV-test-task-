@@ -1,9 +1,9 @@
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'
 import { FilmsList } from './Components/FilmsList/FilmsList'
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <FilmsList />
     </div>
   );

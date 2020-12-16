@@ -1,4 +1,5 @@
 import React, {useState ,useEffect } from 'react'
+import './FilmsList.css'
 
 export const FilmsList = () => {
 
@@ -14,7 +15,11 @@ export const FilmsList = () => {
         <div>
             {films.map(res => {
                 return (
-                    <h1>{res.title}</h1>
+                    <ul className="item-list list-group">
+                        <li className="list-group-item">
+                            {res.title}
+                        </li>
+                    </ul>
                 )
             })}
         </div>
