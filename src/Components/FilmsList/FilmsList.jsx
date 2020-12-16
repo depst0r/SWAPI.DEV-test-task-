@@ -13,9 +13,9 @@ export const FilmsList = () => {
 
     return<>
         <div>
-            {films.map(res => {
+            {films.map((res, index) => {
                 return (
-                    <ul className="item-list list-group">
+                    <ul className="item-list list-group" key={index}>
                         <li className="list-group-item">
                             {res.title}
                         </li>
