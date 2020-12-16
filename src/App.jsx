@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import { FilmsDiteils } from './Components/FilmsDiteils/FilmsDiteils';
+import { FilmsDetails } from './Components/FilmsDetails/FilmsDetails';
 import { FilmsList } from './Components/FilmsList/FilmsList'
+import { FormReviev } from './Components/FormReview/FormReview';
 
 function App() {
 
@@ -15,9 +16,10 @@ const filmSelected = id => {
     <div className="container">
       <div className='row'>
       <div className="col-sm">
-      <FilmsDiteils filmIndex={selected}/>
+      <FilmsDetails filmIndex={selected}/>
       </div>
       </div>
+      <FormReviev/>
       <div className='row'>
       <div className="col-sm">
       <FilmsList filmSelected={filmSelected}/>
