@@ -1,6 +1,6 @@
 import React, {useState ,useEffect } from 'react'
-import './FilmsList.css'
 import { Spinner } from '../Spinner/Spinner'
+import './FilmsList.css'
 
 export const FilmsList = ({filmSelected}) => {
 
@@ -24,7 +24,7 @@ export const FilmsList = ({filmSelected}) => {
                         className="list-group-item"
                         onClick={() => filmSelected(i)}
                         >
-                            {film.title}
+                        {film.title}  
                         </li>
                     </ul>
                 )

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { FilmsDetails } from './Components/FilmsDetails/FilmsDetails';
 import { FilmsList } from './Components/FilmsList/FilmsList'
-import { FormReviev } from './Components/FormReview/FormReview';
+
 
 function App() {
 
@@ -19,7 +19,6 @@ const filmSelected = id => {
       <FilmsDetails filmIndex={selected}/>
       </div>
       </div>
-      <FormReviev/>
       <div className='row'>
       <div className="col-sm">
       <FilmsList filmSelected={filmSelected}/>
