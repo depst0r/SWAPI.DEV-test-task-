@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './FilmsDetails.css'
+import { PoPup } from '../PoPup/PoPup'
 
 export const FilmsDetails = ({filmIndex}) => {
 
-    const [film, setFilm] = useState({})
+    const [film, setFilm] = useState('')
     // const [test, setTest] = useState('')
 
     
@@ -71,6 +72,7 @@ export const FilmsDetails = ({filmIndex}) => {
             </li>
         </ul>  
     </div>
+    <PoPup/>
   </div>
 </>
 }
