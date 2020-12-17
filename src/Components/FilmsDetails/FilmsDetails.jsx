@@ -4,6 +4,7 @@ import './FilmsDetails.css'
 export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState({})
+    const [test, setTest] = useState('')
 
     
     
@@ -19,7 +20,17 @@ export const FilmsDetails = ({filmIndex}) => {
 
     console.log(film);
 
+// console.log(Object.assign({}, film.characters))
+    console.log('promises', film.characters);
+
+    const r = () => {
+        film.characters.map(res => fetch(res).then(res => res.json()).then(res => setTest(res.name)))
+    }
+
+
+  
     return<>
+    <button onClick={r}>YYYYYYYY</button>
     <div className="card">
     <img 
         className="card-img-top" 
@@ -28,20 +39,20 @@ export const FilmsDetails = ({filmIndex}) => {
         <div className="card-body">
         <ul className="list-group list-group-flush">
             <li className="list-group-item">
-                <h6>Title</h6>
+                <h6>{film.title}</h6>
             </li>
             <li className="list-group-item">
-                <p>Director</p>
-                <p>Producer</p>
+                <p>{film.director}</p>
+                <p>{film.producer}</p>
             </li>
             <li className="list-group-item">
-                Relise date
+                {film.release_date}
             </li>
             <li className="list-group-item">
                 Caracters
             </li>
             <li className="list-group-item">
-                Planets
+                <h1>{test}</h1>
             </li>
             <li className="list-group-item">
                 Starships
@@ -53,7 +64,6 @@ export const FilmsDetails = ({filmIndex}) => {
                 species
             </li>
         </ul>  
-        {film.title}
     </div>
   </div>
 </>
