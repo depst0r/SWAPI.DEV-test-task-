@@ -3,35 +3,21 @@ import './FilmsDetails.css'
 
 export const FilmsDetails = ({filmIndex}) => {
 
-    const [film, setFilm] = useState(null)
+    const [film, setFilm] = useState({})
 
     
-    // useEffect(() => {
-    //     fetch(`https://swapi.dev/api/films/${filmIndex + 1}/`)
-    //     .then(res => res.json())
-    //     .then(res => setFilm(res))
-    //     console.log(film);
-    // }, [])
-
+    
     useEffect(() => {
-        updateFilms()
-    }, [])
+         fetchFilm(filmIndex + 1)
+    }, [filmIndex])
 
-    const updateFilms = () => {
-        if (!filmIndex) {
-            return
-        }
-
-        fetch(`https://swapi.dev/api/films/${filmIndex + 1}/`)
+    const fetchFilm = (id) => {
+        fetch(`https://swapi.dev/api/films/${id}/`)
         .then(res => res.json())
         .then(res => setFilm(res))
-
-        console.log(film);
     }
 
-
     console.log(film);
-    console.log(filmIndex);
 
     return<>
     <div className="card">
@@ -67,6 +53,7 @@ export const FilmsDetails = ({filmIndex}) => {
                 species
             </li>
         </ul>  
+        {film.title}
     </div>
   </div>
 </>
