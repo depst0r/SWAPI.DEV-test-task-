@@ -5,7 +5,7 @@ import { PoPup } from '../PoPup/PoPup'
 export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState('')
-    // const [test, setTest] = useState('')
+    const [test, setTest] = useState('')
 
     
     
@@ -22,23 +22,27 @@ export const FilmsDetails = ({filmIndex}) => {
 
     console.log(film);
 
+
+
 // console.log(Object.assign({}, film.characters))
 
+let arr = []
 
-    // const r = () => {
-    //     let arr = []
-    //     film.characters.map(res => fetch(res).then(res => res.json()).then(res => arr.push(res.name)))
-    //     setTest(arr)
-    // }
+    const r = () => {
+        film.characters.map(res => fetch(res)
+        .then(res => res.json())
+        .then(res => arr.push(res.name)))
+        setTest(arr)
+    }
 
-    // console.log(test);
+    console.log('test',test);
 
-   
 
 
   
     return<>
     <div className="card">
+        <button onClick={r}>yyyyyyyy</button>
     <img 
         className="card-img-top" 
         src="https://media.comicbook.com/2020/07/star-wars-skywalker-saga-wallpaper-1231363.jpeg?auto=webp&width=1280&height=720&crop=1280:720,smart" 
@@ -51,6 +55,11 @@ export const FilmsDetails = ({filmIndex}) => {
             <li className="list-group-item">
                 <p>{film.director}</p>
                 <p>{film.producer}</p>
+                {test.map(res => {
+                    return (
+                        <h1>{res}</h1>
+                    )
+                })}
             </li>
             <li className="list-group-item">
                 {film.release_date}
