@@ -4,7 +4,7 @@ import './FilmsDetails.css'
 export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState({})
-    const [test, setTest] = useState('')
+    // const [test, setTest] = useState('')
 
     
     

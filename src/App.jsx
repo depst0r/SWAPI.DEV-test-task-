@@ -13,18 +13,18 @@ const filmSelected = id => {
 }
 
   return (
-    <div className="container">
-      <div className='row'>
-      <div className="col-sm">
-      <FilmsDetails filmIndex={selected}/>
-      </div>
-      </div>
-      <div className='row'>
-      <div className="col-sm">
-      <FilmsList filmSelected={filmSelected}/>
-      </div>
-      </div>
+    <>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <FilmsList filmSelected={filmSelected}/>
     </div>
+    <div class="col-sm">
+    <FilmsDetails filmIndex={selected}/>
+    </div>
+  </div>
+</div>
+</>
   );
 }
 
