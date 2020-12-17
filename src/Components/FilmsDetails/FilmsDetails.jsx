@@ -10,6 +10,7 @@ export const FilmsDetails = ({filmIndex}) => {
     
     useEffect(() => {
          fetchFilm(filmIndex + 1)
+         
     }, [filmIndex])
 
     const fetchFilm = (id) => {
@@ -21,16 +22,21 @@ export const FilmsDetails = ({filmIndex}) => {
     console.log(film);
 
 // console.log(Object.assign({}, film.characters))
-    console.log('promises', film.characters);
 
-    const r = () => {
-        film.characters.map(res => fetch(res).then(res => res.json()).then(res => setTest(res.name)))
-    }
+
+    // const r = () => {
+    //     let arr = []
+    //     film.characters.map(res => fetch(res).then(res => res.json()).then(res => arr.push(res.name)))
+    //     setTest(arr)
+    // }
+
+    // console.log(test);
+
+   
 
 
   
     return<>
-    <button onClick={r}>YYYYYYYY</button>
     <div className="card">
     <img 
         className="card-img-top" 
@@ -49,19 +55,19 @@ export const FilmsDetails = ({filmIndex}) => {
                 {film.release_date}
             </li>
             <li className="list-group-item">
-                Caracters
+                {film.characters}
             </li>
             <li className="list-group-item">
-                <h1>{test}</h1>
+                {film.planets}
             </li>
             <li className="list-group-item">
-                Starships
+                {film.starships}
             </li>
             <li className="list-group-item">
-                vehicles
+                {film.vehicles}
             </li>
             <li className="list-group-item">
-                species
+                {film.species}
             </li>
         </ul>  
     </div>
