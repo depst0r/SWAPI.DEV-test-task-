@@ -55,17 +55,16 @@ let arr = []
             <li className="list-group-item">
                 <p>{film.director}</p>
                 <p>{film.producer}</p>
-                {test.map(res => {
-                    return (
-                        <h1>{res}</h1>
-                    )
-                })}
             </li>
             <li className="list-group-item">
                 {film.release_date}
             </li>
             <li className="list-group-item">
-                {film.characters}
+            {test ? test.map(res => {
+                    return (
+                        <p>{res}</p>
+                    )
+                }) : <p>Select person</p> }
             </li>
             <li className="list-group-item">
                 {film.planets}
