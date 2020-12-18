@@ -20,13 +20,19 @@ export const FilmsDetails = ({filmIndex}) => {
         .then(res => setFilm(res))
     }
 
+    // useEffect(() => {
+    //     r()
+    // }, [])
+
     console.log(film);
 
 
 
 // console.log(Object.assign({}, film.characters))
 
-let arr = []
+const arr = []
+
+
 
     const r = () => {
         film.characters.map(res => fetch(res)
