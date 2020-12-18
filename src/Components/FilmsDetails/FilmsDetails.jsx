@@ -4,14 +4,13 @@ import { PoPup } from '../PoPup/PoPup'
 
 export const FilmsDetails = ({filmIndex}) => {
 
-    const [film, setFilm] = useState('')
+    const [film, setFilm] = useState(Array)
     const [test, setTest] = useState('')
 
     
     
     useEffect(() => {
          fetchFilm(filmIndex + 1)
-         
     }, [filmIndex])
 
     const fetchFilm = (id) => {
@@ -20,9 +19,6 @@ export const FilmsDetails = ({filmIndex}) => {
         .then(res => setFilm(res))
     }
 
-    // useEffect(() => {
-    //     r()
-    // }, [])
 
     console.log(film);
 
@@ -32,18 +28,20 @@ export const FilmsDetails = ({filmIndex}) => {
 
 const arr = []
 
-
+console.log();
 
     const r = () => {
         film.characters.map(res => fetch(res)
-        .then(res => res.json())
-        .then(res => arr.push(res.name)))
-        setTest(arr)
+            .then(res => res.json())
+            .then(res => arr.push(res.name)))
+            setTest(arr) 
     }
+    const requests = film.planets.map(url => fetch(url))
+    Promise.all(requests).then(res => res.map(res => console.log(res)))
 
     console.log('test',test);
 
-
+ 
 
   
     return<>
@@ -56,7 +54,7 @@ const arr = []
         <div className="card-body">
         <ul className="list-group list-group-flush">
             <li className="list-group-item">
-                <h6>{film.title}</h6>
+                <h6>{ film.title }</h6>
             </li>
             <li className="list-group-item">
                 <p>{film.director}</p>
@@ -73,7 +71,7 @@ const arr = []
                 }) : <p>Select person</p> }
             </li>
             <li className="list-group-item">
-                {film.planets}
+                { film.planets }
             </li>
             <li className="list-group-item">
                 {film.starships}
