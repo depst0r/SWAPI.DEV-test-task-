@@ -22,28 +22,23 @@ export const FilmsDetails = ({filmIndex}) => {
 
     console.log(film);
 
-
+    useEffect(() => {
+        Promise.all(film.planets).then(res => console.log(res))
+    }, [film.planets])
 
 // console.log(Object.assign({}, film.characters))
 
 const arr = []
-
-console.log();
 
     const r = () => {
         film.characters.map(res => fetch(res)
             .then(res => res.json())
             .then(res => arr.push(res.name)))
             setTest(arr) 
+            // const requests = film.planets.map(url => fetch(url))
+            Promise.all(film.planets).then(res => res.map(res => console.log(res)))
     }
-    const requests = film.planets.map(url => fetch(url))
-    Promise.all(requests).then(res => res.map(res => console.log(res)))
 
-    console.log('test',test);
-
- 
-
-  
     return<>
     <div className="card">
         <button onClick={r}>yyyyyyyy</button>
