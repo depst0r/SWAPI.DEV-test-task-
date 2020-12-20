@@ -28,6 +28,18 @@ export const FilmsDetails = ({filmIndex}) => {
     //     Promise.all(film.planets).then(res => console.log(res))
     // }, [film.planets])
 
+    const fetcPromise = async urls => {
+        try {
+            const response = await Promise.all(
+                urls.map(url => fetch(url).then(res => res.json()))
+            )
+            console.log(response)
+            return response
+        } catch (error) {
+            console.log('Error', error);
+        }
+    }
+
 // console.log(Object.assign({}, film.characters))
 
 const arr = []
