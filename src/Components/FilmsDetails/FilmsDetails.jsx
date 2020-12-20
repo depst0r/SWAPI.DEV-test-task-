@@ -19,9 +19,6 @@ export const FilmsDetails = ({filmIndex}) => {
         fetch(`https://swapi.dev/api/films/${id}/`)
         .then(res => res.json())
         .then(res => setFilm(res))
-        Promise.resolve(film.planets).then(res => {
-            res.map(res => fetch(res).then(res => console.log(res.url)))
-        })
     }
 
 
@@ -47,7 +44,7 @@ const arr = []
 
     return<>
     <div className="card">
-        <button onClick={r}>yyyyyyyy</button>
+        <button onClick={r}>Test</button>
     <img 
         className="card-img-top" 
         src="https://media.comicbook.com/2020/07/star-wars-skywalker-saga-wallpaper-1231363.jpeg?auto=webp&width=1280&height=720&crop=1280:720,smart" 
@@ -74,6 +71,7 @@ const arr = []
             <li className="list-group-item">
                 {/* { film.planets } */}
                 {
+                    film.planets
                 }
             </li>
             <li className="list-group-item">
