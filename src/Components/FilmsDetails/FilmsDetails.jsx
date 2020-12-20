@@ -4,8 +4,9 @@ import { PoPup } from '../PoPup/PoPup'
 
 export const FilmsDetails = ({filmIndex}) => {
 
-    const [film, setFilm] = useState(Array)
+    const [film, setFilm] = useState('')
     const [test, setTest] = useState('')
+    const [planets, setPlanets] = useState('')
 
     
     
@@ -13,18 +14,22 @@ export const FilmsDetails = ({filmIndex}) => {
          fetchFilm(filmIndex + 1)
     }, [filmIndex])
 
+
     const fetchFilm = (id) => {
         fetch(`https://swapi.dev/api/films/${id}/`)
         .then(res => res.json())
         .then(res => setFilm(res))
+        Promise.resolve(film.planets).then(res => {
+            res.map(res => fetch(res).then(res => console.log(res.url)))
+        })
     }
 
 
     console.log(film);
 
-    useEffect(() => {
-        Promise.all(film.planets).then(res => console.log(res))
-    }, [film.planets])
+    // useEffect(() => {
+    //     Promise.all(film.planets).then(res => console.log(res))
+    // }, [film.planets])
 
 // console.log(Object.assign({}, film.characters))
 
@@ -36,8 +41,9 @@ const arr = []
             .then(res => arr.push(res.name)))
             setTest(arr) 
             // const requests = film.planets.map(url => fetch(url))
-            Promise.all(film.planets).then(res => res.map(res => console.log(res)))
+            Promise.all(film.planets).then(res => console.log(res))
     }
+
 
     return<>
     <div className="card">
@@ -59,14 +65,16 @@ const arr = []
                 {film.release_date}
             </li>
             <li className="list-group-item">
-            {test ? test.map(res => {
+            {/* {test ? test.map(res => {
                     return (
                         <p>{res}</p>
                     )
-                }) : <p>Select person</p> }
+                }) : <p>Select person</p> } */}
             </li>
             <li className="list-group-item">
-                { film.planets }
+                {/* { film.planets } */}
+                {
+                }
             </li>
             <li className="list-group-item">
                 {film.starships}
