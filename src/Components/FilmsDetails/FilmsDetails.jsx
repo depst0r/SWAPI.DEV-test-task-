@@ -38,7 +38,7 @@ const arr = []
             .then(res => arr.push(res.name)))
             setTest(arr) 
             // const requests = film.planets.map(url => fetch(url))
-            Promise.all(film.planets).then(res => console.log(res))
+            // Promise.all(film.planets).then(res => console.log(res))
     }
 
 
@@ -71,7 +71,7 @@ const arr = []
             <li className="list-group-item">
                 {/* { film.planets } */}
                 {
-                    film.planets
+                    
                 }
             </li>
             <li className="list-group-item">
