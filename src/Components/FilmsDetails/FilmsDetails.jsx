@@ -5,8 +5,8 @@ import { PoPup } from '../PoPup/PoPup'
 export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState('')
-    const [test, setTest] = useState('')
-    const [planets, setPlanets] = useState('')
+    // const [test, setTest] = useState('')
+    // const [planets, setPlanets] = useState('')
 
     
     
@@ -22,41 +22,33 @@ export const FilmsDetails = ({filmIndex}) => {
     }
 
 
-    console.log(film);
-
-    // useEffect(() => {
-    //     Promise.all(film.planets).then(res => console.log(res))
-    // }, [film.planets])
-
-    const fetcPromise = async urls => {
+    const fetchPromise = async urls => {
         try {
             const response = await Promise.all(
                 urls.map(url => fetch(url).then(res => res.json()))
             )
-            console.log(response)
             return response
         } catch (error) {
             console.log('Error', error);
         }
     }
 
+    
+
 // console.log(Object.assign({}, film.characters))
 
-const arr = []
+// const arr = []
 
-    const r = () => {
-        film.characters.map(res => fetch(res)
-            .then(res => res.json())
-            .then(res => arr.push(res.name)))
-            setTest(arr) 
-            // const requests = film.planets.map(url => fetch(url))
-            // Promise.all(film.planets).then(res => console.log(res))
-    }
+//     const r = () => {
+//         film.characters.map(res => fetch(res)
+//             .then(res => res.json())
+//             .then(res => arr.push(res.name)))
+//             setTest(arr) 
+//     }
 
 
     return<>
     <div className="card">
-        <button onClick={r}>Test</button>
     <img 
         className="card-img-top" 
         src="https://media.comicbook.com/2020/07/star-wars-skywalker-saga-wallpaper-1231363.jpeg?auto=webp&width=1280&height=720&crop=1280:720,smart" 
@@ -74,17 +66,8 @@ const arr = []
                 {film.release_date}
             </li>
             <li className="list-group-item">
-            {/* {test ? test.map(res => {
-                    return (
-                        <p>{res}</p>
-                    )
-                }) : <p>Select person</p> } */}
             </li>
             <li className="list-group-item">
-                {/* { film.planets } */}
-                {
-                    
-                }
             </li>
             <li className="list-group-item">
                 {film.starships}

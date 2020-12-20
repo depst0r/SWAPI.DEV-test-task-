@@ -14,12 +14,12 @@ const filmSelected = id => {
 
   return (
     <>
-      <div class="container">
-      <div class="row">
-      <div class="col-sm">
+      <div className="container">
+      <div className="row">
+      <div className="col-sm">
         <FilmsList filmSelected={filmSelected}/>
       </div>
-      <div class="col-sm">
+      <div className="col-sm">
         <FilmsDetails filmIndex={selected}/>
       </div>
     </div>
