@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './FilmsDetails.css'
 import { PoPup } from '../PoPup/PoPup'
+import { Spinner } from '../Spinner/Spinner'
 
 export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState('')
-    // const [test, setTest] = useState('')
     const [planets, setPlanets] = useState('')
+    const [vehicles, setVehicles] = useState('')
 
     
     
@@ -15,8 +16,9 @@ export const FilmsDetails = ({filmIndex}) => {
     }, [filmIndex])
 
     useEffect(() => {
-        fetchPromise(film.vehicles).then(res => setPlanets(res))
-    }, [film.vehicles])
+        fetchPromise(film.planets).then(res => setPlanets(res))
+        fetchPromise(film.vehicles).then(res => setVehicles(res))
+    }, [film.vehicles, film.vehicles])
 
   
 
@@ -34,22 +36,9 @@ export const FilmsDetails = ({filmIndex}) => {
             )
             return response
         } catch (error) {
-            console.log('Error', error);
+            <Spinner/>
         }
     }
-
-    
-
-// console.log(Object.assign({}, film.characters))
-
-// const arr = []
-
-//     const r = () => {
-//         film.characters.map(res => fetch(res)
-//             .then(res => res.json())
-//             .then(res => arr.push(res.name)))
-//             setTest(arr) 
-//     }
 
 
     return<>
@@ -83,7 +72,11 @@ export const FilmsDetails = ({filmIndex}) => {
                 {film.starships}
             </li>
             <li className="list-group-item">
-                {film.vehicles}
+            {vehicles ? vehicles.map((res, i) => {
+                    return (
+                        <p key={i}>{res.name}</p>
+                    )
+                }) : null}
             </li>
             <li className="list-group-item">
                 {film.species}
