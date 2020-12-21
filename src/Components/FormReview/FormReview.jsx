@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 export const FormReview = () => {
 
@@ -6,14 +7,22 @@ export const FormReview = () => {
     const [email, setEmail] = useState('')
     const [review, setReview] = useState('')
 
+    const submit = () => {
+        
+    }
+
     const handleSubmit = e => {
+
         e.preventDefault()
     } 
 
     return<>
     <form onSubmit={handleSubmit}>
+    <Link to='/'>
+        <p>X</p>
+    </Link>
     <div className="form-group">
-            <label htmlFor="exampleInputUserName">User Name</label>
+            <label htmlFor="exampleInputUserName" required>User Name</label>
             <input 
             type="text" 
             className="form-control" 
@@ -46,7 +55,10 @@ export const FormReview = () => {
             />
         </div>
         <button 
-        className="btn btn-primary">Submit</button>
+        className="btn btn-primary" 
+        type="submit">
+            Submit
+        </button>
     </form>
     </>
 }
