@@ -13,7 +13,6 @@ export const FilmsDetails = ({filmIndex}) => {
     const [characters, setCharacters] = useState('')
 
     
-    
     useEffect(() => {
          fetchFilm(filmIndex + 1)
     }, [filmIndex])
@@ -48,7 +47,6 @@ export const FilmsDetails = ({filmIndex}) => {
     }
 
 
-
     return<>
     <div className="card">
     <img 
@@ -58,7 +56,7 @@ export const FilmsDetails = ({filmIndex}) => {
         <div className="card-body">
         <ul className="list-group list-group-flush">
             <li className="list-group-item">
-                <h6>{ film.title }</h6>
+                <h4>{ film.title }</h4>
             </li>
             <li className="list-group-item">
                 <p>{film.director}</p>
@@ -72,38 +70,49 @@ export const FilmsDetails = ({filmIndex}) => {
                     return (
                         <p key={i}>{res.name}</p>
                     )
-                }) : null}
+                }) : <Spinner/>}
             </li>
             <li className="list-group-item">
             {characters ? characters.map((res, i) => {
                     return (
                         <p key={i}>{res.name}</p>
                     )
-                }) : null}
+                }) : <Spinner/>}
             </li>
             <li className="list-group-item">
             {starships ? starships.map((res, i) => {
                     return (
                         <p key={i}>{res.name}</p>
                     )
-                }) : null}
+                }) : <Spinner/>}
             </li>
             <li className="list-group-item">
             {vehicles ? vehicles.map((res, i) => {
                     return (
                         <p key={i}>{res.name}</p>
                     )
-                }) : null}
+                }) : <Spinner/>}
             </li>
             <li className="list-group-item">
             {species ? species.map((res, i) => {
                     return (
                         <p key={i}>{res.name}</p>
                     )
-                }) : null}
+                }) : <Spinner/>}
             </li>
         </ul>  
     </div>
+    <div class="card text-white bg-primary mb-3" >
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">            {species ? species.map((res, i) => {
+                    return (
+                        <text key={i}>{ res.name } </text>
+                    )
+                }) : <Spinner/>}</p>
+  </div>
+</div>
     <PoPup/>
   </div>
 </>
