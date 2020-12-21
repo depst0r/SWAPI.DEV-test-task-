@@ -8,6 +8,9 @@ export const FilmsDetails = ({filmIndex}) => {
     const [film, setFilm] = useState('')
     const [planets, setPlanets] = useState('')
     const [vehicles, setVehicles] = useState('')
+    const [starships, setStarships] = useState('')
+    const [species, setSpecies] = useState('')
+    const [characters, setCharacters] = useState('')
 
     
     
@@ -18,7 +21,10 @@ export const FilmsDetails = ({filmIndex}) => {
     useEffect(() => {
         fetchPromise(film.planets).then(res => setPlanets(res))
         fetchPromise(film.vehicles).then(res => setVehicles(res))
-    }, [film.vehicles, film.vehicles])
+        fetchPromise(film.starships).then(res => setStarships(res))
+        fetchPromise(film.species).then(res => setSpecies(res))
+        fetchPromise(film.characters).then(res => setCharacters(res))
+    }, [film.vehicles, film.vehicles, film.starships, film.species, film.characters])
 
   
 
@@ -36,9 +42,11 @@ export const FilmsDetails = ({filmIndex}) => {
             )
             return response
         } catch (error) {
+            console.error('ERROR', error);
             <Spinner/>
         }
     }
+
 
 
     return<>
@@ -67,9 +75,18 @@ export const FilmsDetails = ({filmIndex}) => {
                 }) : null}
             </li>
             <li className="list-group-item">
+            {characters ? characters.map((res, i) => {
+                    return (
+                        <p key={i}>{res.name}</p>
+                    )
+                }) : null}
             </li>
             <li className="list-group-item">
-                {film.starships}
+            {starships ? starships.map((res, i) => {
+                    return (
+                        <p key={i}>{res.name}</p>
+                    )
+                }) : null}
             </li>
             <li className="list-group-item">
             {vehicles ? vehicles.map((res, i) => {
@@ -79,7 +96,11 @@ export const FilmsDetails = ({filmIndex}) => {
                 }) : null}
             </li>
             <li className="list-group-item">
-                {film.species}
+            {species ? species.map((res, i) => {
+                    return (
+                        <p key={i}>{res.name}</p>
+                    )
+                }) : null}
             </li>
         </ul>  
     </div>
