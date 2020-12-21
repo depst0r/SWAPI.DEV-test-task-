@@ -6,7 +6,7 @@ export const FilmsDetails = ({filmIndex}) => {
 
     const [film, setFilm] = useState('')
     // const [test, setTest] = useState('')
-    // const [planets, setPlanets] = useState('')
+    const [planets, setPlanets] = useState('')
 
     
     
@@ -14,6 +14,11 @@ export const FilmsDetails = ({filmIndex}) => {
          fetchFilm(filmIndex + 1)
     }, [filmIndex])
 
+    useEffect(() => {
+        fetchPromise(film.vehicles).then(res => setPlanets(res))
+    }, [film.vehicles])
+
+  
 
     const fetchFilm = (id) => {
         fetch(`https://swapi.dev/api/films/${id}/`)
@@ -66,6 +71,11 @@ export const FilmsDetails = ({filmIndex}) => {
                 {film.release_date}
             </li>
             <li className="list-group-item">
+                {planets ? planets.map((res, i) => {
+                    return (
+                        <p key={i}>{res.name}</p>
+                    )
+                }) : null}
             </li>
             <li className="list-group-item">
             </li>
