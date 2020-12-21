@@ -7,12 +7,27 @@ export const FormReview = () => {
     const [email, setEmail] = useState('')
     const [review, setReview] = useState('')
 
-    const submit = () => {
-        
+    const submitForm = () => {
+        new Promise(resolve => { 
+            setUserName('')
+            setEmail('')
+            setReview('')
+            setTimeout(() => {
+                const obj = {
+                    name: userName,
+                    email,
+                    review,
+                }
+                console.log(test);
+                resolve()
+            }, 1000)
+        })
     }
 
     const handleSubmit = e => {
-
+        if (userName === 't') {
+            submitForm()
+        } 
         e.preventDefault()
     } 
 
