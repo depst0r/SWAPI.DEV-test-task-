@@ -48,11 +48,11 @@ export const FilmsDetails = ({filmIndex}) => {
 
 
     return<>
-  <div class="card text-dark bg-light mb-3">
-  <div class="card-header"><h5>{ film.title }</h5></div>
-  <div class="card-body">
-    <h5 class="card-title">Directed by</h5>
-    <p class="card-text">
+  <div className="card text-dark bg-light mb-3">
+  <div className="card-header"><h5>{ film.title }</h5></div>
+  <div className="card-body">
+    <h5 className="card-title">Directed by</h5>
+    <p className="card-text">
         {film.director}
         {film.producer}
     </p>
@@ -60,9 +60,9 @@ export const FilmsDetails = ({filmIndex}) => {
     <p className='card-text'>{film.release_date}</p>
   </div>
 </div>
-  <div class="card text-white bg-dark mb-3" >
-  <div class="card-header">Characters</div>
-  <div class="card-body">
+  <div className="card text-white bg-dark mb-3" >
+  <div className="card-header">Characters</div>
+  <div className="card-body">
   {characters ? characters.map((res, i) => {
         return (
             <span key={i}>{res.name} , </span>
@@ -70,9 +70,9 @@ export const FilmsDetails = ({filmIndex}) => {
     }) : <Spinner/>}
   </div>
 </div>
-<div class="card text-white bg-dark mb-3" >
-  <div class="card-header">Planets</div>
-  <div class="card-body">
+<div className="card text-white bg-dark mb-3" >
+  <div className="card-header">Planets</div>
+  <div className="card-body">
   {planets ? planets.map((res, i) => {
         return (
             <span key={i}>{res.name} , </span>
@@ -80,34 +80,34 @@ export const FilmsDetails = ({filmIndex}) => {
     }) : <Spinner/>}
   </div>
 </div>
-<div class="card text-white bg-dark mb-3" >
-  <div class="card-header">Starships </div>
-  <div class="card-body">
+<div className="card text-white bg-dark mb-3" >
+  <div className="card-header">Starships </div>
+  <div className="card-body">
   {starships ? starships.map((res, i) => {
-                    return (
-                        <span key={i}>{res.name} , </span>
-                    )
-                }) : <Spinner/>}
+        return (
+            <span key={i}>{res.name} , </span>
+        )
+    }) : <Spinner/>}
   </div>
 </div>
-<div class="card text-white bg-dark mb-3" >
-  <div class="card-header">Vehicles</div>
-  <div class="card-body">
+<div className="card text-white bg-dark mb-3" >
+  <div className="card-header">Vehicles</div>
+  <div className="card-body">
   {vehicles ? vehicles.map((res, i) => {
-                    return (
-                        <span key={i}>{res.name} , </span>
-                    )
-                }) : <Spinner/>}
+        return (
+            <span key={i}>{res.name} , </span>
+        )
+    }) : <Spinner/>}
   </div>
 </div>
-<div class="card text-white bg-dark mb-3" >
-  <div class="card-header">Species</div>
-  <div class="card-body">
+<div className="card text-white bg-dark mb-3" >
+  <div className="card-header">Species</div>
+  <div className="card-body">
   {species ? species.map((res, i) => {
-                    return (
-                        <span key={i}>{res.name} , </span>
-                    )
-                }) : <Spinner/>}
+        return (
+            <span key={i}>{res.name} , </span>
+        )
+    }) : <Spinner/>}
   </div>
 </div>
 </>

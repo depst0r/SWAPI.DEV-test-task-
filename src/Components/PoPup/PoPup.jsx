@@ -1,6 +1,6 @@
 import React from 'react'
 import Popup from "reactjs-popup"
-import { FormReviev, FormReview } from '../FormReview/FormReview'
+import {  FormReview } from '../FormReview/FormReview'
 
 export const PoPup = () => {
     return<>
@@ -8,7 +8,7 @@ export const PoPup = () => {
         trigger={<button className='btn btn-secondary'>Review</button>}
         modal
         >
-        <FormReviev />
+        <FormReview />
       </Popup>   
     </>
 }

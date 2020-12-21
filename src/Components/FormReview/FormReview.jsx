@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export const FormReviev = () => {
+export const FormReview = () => {
 
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
