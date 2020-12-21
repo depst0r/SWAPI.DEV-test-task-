@@ -48,72 +48,67 @@ export const FilmsDetails = ({filmIndex}) => {
 
 
     return<>
-    <div className="card">
-    <img 
-        className="card-img-top" 
-        src="https://media.comicbook.com/2020/07/star-wars-skywalker-saga-wallpaper-1231363.jpeg?auto=webp&width=1280&height=720&crop=1280:720,smart" 
-        alt="poster"/>
-        <div className="card-body">
-        <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-                <h4>{ film.title }</h4>
-            </li>
-            <li className="list-group-item">
-                <p>{film.director}</p>
-                <p>{film.producer}</p>
-            </li>
-            <li className="list-group-item">
-                {film.release_date}
-            </li>
-            <li className="list-group-item">
-                {planets ? planets.map((res, i) => {
-                    return (
-                        <p key={i}>{res.name}</p>
-                    )
-                }) : <Spinner/>}
-            </li>
-            <li className="list-group-item">
-            {characters ? characters.map((res, i) => {
-                    return (
-                        <p key={i}>{res.name}</p>
-                    )
-                }) : <Spinner/>}
-            </li>
-            <li className="list-group-item">
-            {starships ? starships.map((res, i) => {
-                    return (
-                        <p key={i}>{res.name}</p>
-                    )
-                }) : <Spinner/>}
-            </li>
-            <li className="list-group-item">
-            {vehicles ? vehicles.map((res, i) => {
-                    return (
-                        <p key={i}>{res.name}</p>
-                    )
-                }) : <Spinner/>}
-            </li>
-            <li className="list-group-item">
-            {species ? species.map((res, i) => {
-                    return (
-                        <p key={i}>{res.name}</p>
-                    )
-                }) : <Spinner/>}
-            </li>
-        </ul>  
-    </div>
-    <div class="card text-white bg-primary mb-3" >
-  <div class="card-header">Header</div>
+  <div class="card text-dark bg-light mb-3">
+  <div class="card-header"><h5>{ film.title }</h5></div>
   <div class="card-body">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">            {species ? species.map((res, i) => {
-                    return (
-                        <text key={i}>{ res.name } </text>
-                    )
-                }) : <Spinner/>}</p>
+    <h5 class="card-title">Directed by</h5>
+    <p class="card-text">
+        {film.director}
+        {film.producer}
+    </p>
+    <h5 className='card-title'>Release date</h5>
+    <p className='card-text'>{film.release_date}</p>
   </div>
 </div>
-    <PoPup/>
+  <div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Characters</div>
+  <div class="card-body">
+  {characters ? characters.map((res, i) => {
+        return (
+            <span key={i}>{res.name} , </span>
+        )
+    }) : <Spinner/>}
   </div>
+</div>
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Planets</div>
+  <div class="card-body">
+  {planets ? planets.map((res, i) => {
+        return (
+            <span key={i}>{res.name} , </span>
+        )
+    }) : <Spinner/>}
+  </div>
+</div>
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Starships </div>
+  <div class="card-body">
+  {starships ? starships.map((res, i) => {
+                    return (
+                        <span key={i}>{res.name} , </span>
+                    )
+                }) : <Spinner/>}
+  </div>
+</div>
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Vehicles</div>
+  <div class="card-body">
+  {vehicles ? vehicles.map((res, i) => {
+                    return (
+                        <span key={i}>{res.name} , </span>
+                    )
+                }) : <Spinner/>}
+  </div>
+</div>
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header">Species</div>
+  <div class="card-body">
+  {species ? species.map((res, i) => {
+                    return (
+                        <span key={i}>{res.name} , </span>
+                    )
+                }) : <Spinner/>}
+  </div>
+</div>
 </>
 }
