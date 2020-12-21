@@ -6,6 +6,7 @@ export const FormReview = () => {
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [review, setReview] = useState('')
+    const [allreview, setAllreview] = useState([])
 
     const submitForm = () => {
         new Promise(resolve => { 
@@ -18,14 +19,14 @@ export const FormReview = () => {
                     email,
                     review,
                 }
-                console.log(test);
+                console.log([obj]);
                 resolve()
             }, 1000)
         })
     }
 
     const handleSubmit = e => {
-        if (userName === 't') {
+        if (userName.length >= 5 && review >= 10) {
             submitForm()
         } 
         e.preventDefault()
@@ -50,6 +51,7 @@ export const FormReview = () => {
         <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input 
+            required
             type="email" 
             className="form-control" 
             id="exampleInputEmail1" 
