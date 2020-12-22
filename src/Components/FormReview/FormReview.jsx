@@ -6,27 +6,28 @@ export const FormReview = () => {
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [review, setReview] = useState('')
-    const [allreview, setAllreview] = useState([])
+    const [test, setTest] = useState([])
 
     const submitForm = () => {
         new Promise(resolve => { 
             setUserName('')
             setEmail('')
             setReview('')
-            setTimeout(() => {
-                const obj = {
-                    name: userName,
+            setTimeout(() => { 
+                console.log(setTest(state => state.concat({
+                    id: Date.now(),
+                    userName,
                     email,
-                    review,
-                }
-                console.log([obj]);
+                    review
+                })))
+                console.log(test);
                 resolve()
             }, 1000)
         })
     }
 
     const handleSubmit = e => {
-        if (userName.length >= 5 && review >= 10) {
+        if (userName.length >= 5 ) {
             submitForm()
         } 
         e.preventDefault()
