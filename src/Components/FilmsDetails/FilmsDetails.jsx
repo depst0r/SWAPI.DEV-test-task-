@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './FilmsDetails.css'
-import { PoPup } from '../PoPup/PoPup'
 import { Spinner } from '../Spinner/Spinner'
 
 export const FilmsDetails = ({filmIndex}) => {
@@ -23,16 +22,14 @@ export const FilmsDetails = ({filmIndex}) => {
         fetchPromise(film.starships).then(res => setStarships(res))
         fetchPromise(film.species).then(res => setSpecies(res))
         fetchPromise(film.characters).then(res => setCharacters(res))
-    }, [film.vehicles, film.vehicles, film.starships, film.species, film.characters])
+    }, [film.vehicles, film.starships, film.species, film.characters, film.planets] )
 
-  
-
-    const fetchFilm = (id) => {
+    const fetchFilm = id => {
         fetch(`https://swapi.dev/api/films/${id}/`)
         .then(res => res.json())
         .then(res => setFilm(res))
     }
-
+  
 
     const fetchPromise = async urls => {
         try {
