@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import { ReviewData } from './ReviewData'
 
 export const FormReview = () => {
 
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [review, setReview] = useState('')
-    const [test, setTest] = useState([])
+    const [arr, setArr] = useState([])
 
     const submitForm = () => {
         new Promise(resolve => { 
@@ -14,14 +15,13 @@ export const FormReview = () => {
             setEmail('')
             setReview('')
             setTimeout(() => { 
-                console.log(setTest(state => state.concat({
+                setArr(state => state.concat({
                     id: Date.now(),
                     userName,
                     email,
                     review
-                })))
-                console.log(test);
-                resolve()
+                }))
+            resolve()
             }, 1000)
         })
     }
@@ -34,12 +34,17 @@ export const FormReview = () => {
     } 
 
     return<>
+        <ReviewData arr={arr}/>
     <form onSubmit={handleSubmit}>
     <Link to='/'>
         <p>X</p>
     </Link>
     <div className="form-group">
-            <label htmlFor="exampleInputUserName" required>User Name</label>
+            <label 
+            htmlFor="exampleInputUserName" 
+            required>
+                User Name
+                </label>
             <input 
             type="text" 
             className="form-control" 
@@ -50,7 +55,10 @@ export const FormReview = () => {
             />
         </div>
         <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
+            <label 
+            htmlFor="exampleInputEmail1">
+                Email address
+                </label>
             <input 
             required
             type="email" 
@@ -63,7 +71,10 @@ export const FormReview = () => {
             />
         </div>
         <div className="form-group">
-            <label htmlFor="exampleFormControlTextarea1">Review text</label>
+            <label 
+            htmlFor="exampleFormControlTextarea1">
+                Review text
+                </label>
             <textarea 
             className="form-control" 
             id="exampleFormControlTextarea1" 
