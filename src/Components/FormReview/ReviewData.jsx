@@ -9,9 +9,9 @@ export const ReviewData = ({arr}) => {
     }, [arr])
 
     return<>
-        {userData ? userData.map(res => {
+        {userData ? userData.map((res, id) => {
             return (
-                <div className="card text-white bg-info mb-3">
+                <div className="card text-white bg-info mb-3" key={res.id}>
             <div className="card-header">thanks for the tip</div>
             <div className="card-body">
                 <h5 className="card-title">{res.userName}</h5>
