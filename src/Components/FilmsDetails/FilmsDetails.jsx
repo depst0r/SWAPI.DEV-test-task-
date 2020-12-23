@@ -17,7 +17,7 @@ export const FilmsDetails = ({filmIndex}) => {
     }, [filmIndex])
 
     useEffect(() => {
-        fetchPromise(film.planets).then(res => setPlanets(res))
+      fetchPromise(film.planets).then(res => setPlanets(res))
         fetchPromise(film.vehicles).then(res => setVehicles(res))
         fetchPromise(film.starships).then(res => setStarships(res))
         fetchPromise(film.species).then(res => setSpecies(res))
@@ -29,7 +29,7 @@ export const FilmsDetails = ({filmIndex}) => {
         .then(res => res.json())
         .then(res => setFilm(res))
     }
-  
+
 
     const fetchPromise = async urls => {
         try {
@@ -44,7 +44,20 @@ export const FilmsDetails = ({filmIndex}) => {
     }
 
 
+    const test = async url => {
+      await Promise.all(
+      url.map(res => fetch(res)
+        .then(res => res.json())
+        .then(res => Promise.resolve(
+          console.log(res)
+        )
+      )
+    ))
+  }
+
+ 
     return<>
+    <button onClick={test}>jhkj</button>
   <div className="card text-dark bg-light mb-3">
   <div className="card-header"><h5>{ film.title }</h5></div>
   <div className="card-body">
@@ -52,6 +65,7 @@ export const FilmsDetails = ({filmIndex}) => {
     <p className="card-text">
         {film.director}
         {film.producer}
+        {}
     </p>
     <h5 className='card-title'>Release date</h5>
     <p className='card-text'>{film.release_date}</p>
