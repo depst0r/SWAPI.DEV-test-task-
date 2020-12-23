@@ -57,31 +57,36 @@ export const FilmsDetails = ({filmIndex}) => {
 
 const test = object => {
   Promise.all(
-
     Object.values(object).map((urls, index) => {
-
-      const key = Object.keys(object)[index];
-
       return Promise.all(urls.map((url) => {
-
-        return fetch(url).then(res => res.json()).then(res => {
-          {
-
-            return {
-              [key]: res
-            }
-          }
-        })
-      }))
+        return fetch(url).then(res => res.json());
+      })).then(values => {
+        const key = Object.keys(object)[index];
+        return {[key]: values}
+      })
     })
+).then(values => {
+  setData(values.reduce((obj, next) => {
+    const key = Object.keys(next)[0];
+    return {...obj, [key]: next[key]};
+  }, {}));
 
-).then(values => setData([...values], values))
-console.log(data)
+});
+console.log(data.planets.map(res => res.name))
 }
 
 
     return<>
-    <button onClick={() => test( {starships:film.starships, planets:film.planets})}>jhkj</button>
+    <button onClick={() => test( 
+      {
+        starships: film.starships, 
+        planets: film.planets, 
+        vehicles: film.vehicles,
+        species: film.species,
+        characters: film.characters
+      }
+      )
+      }>jhkj</button>
   <div className="card text-dark bg-light mb-3">
   <div className="card-header"><h5>{ film.title }</h5></div>
   <div className="card-body">
