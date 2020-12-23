@@ -10,6 +10,7 @@ export const FilmsDetails = ({filmIndex}) => {
     const [starships, setStarships] = useState('')
     const [species, setSpecies] = useState('')
     const [characters, setCharacters] = useState('')
+    const [data, setData] = useState([])
 
     
     useEffect(() => {
@@ -43,21 +44,44 @@ export const FilmsDetails = ({filmIndex}) => {
         }
     }
 
+  //   const test = async url => {
+  //     await Promise.all(
+  //     url.map(res => fetch(res)
+  //       .then(res => res.json())
+  //       .then(res => Promise.resolve(
+  //         console.log(res)
+  //       )
+  //     )
+  //   ))
+  // }
 
-    const test = async url => {
-      await Promise.all(
-      url.map(res => fetch(res)
-        .then(res => res.json())
-        .then(res => Promise.resolve(
-          console.log(res)
-        )
-      )
-    ))
-  }
+const test = object => {
+  Promise.all(
 
- 
+    Object.values(object).map((urls, index) => {
+
+      const key = Object.keys(object)[index];
+
+      return Promise.all(urls.map((url) => {
+
+        return fetch(url).then(res => res.json()).then(res => {
+          {
+
+            return {
+              [key]: res
+            }
+          }
+        })
+      }))
+    })
+
+).then(values => setData([...values], values))
+console.log(data)
+}
+
+
     return<>
-    <button onClick={test}>jhkj</button>
+    <button onClick={() => test( {starships:film.starships, planets:film.planets})}>jhkj</button>
   <div className="card text-dark bg-light mb-3">
   <div className="card-header"><h5>{ film.title }</h5></div>
   <div className="card-body">
@@ -65,7 +89,9 @@ export const FilmsDetails = ({filmIndex}) => {
     <p className="card-text">
         {film.director}
         {film.producer}
-        {}
+        {
+          // test(film.planets)
+        }
     </p>
     <h5 className='card-title'>Release date</h5>
     <p className='card-text'>{film.release_date}</p>
