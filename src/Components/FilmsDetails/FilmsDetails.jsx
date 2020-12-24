@@ -4,7 +4,7 @@ import { Spinner } from '../Spinner/Spinner'
 
 export const FilmsDetails = ({filmIndex}) => {
 
-    const [film, setFilm] = useState([])
+    const [film, setFilm] = useState(null)
     const [data, setData] = useState([])
 
     
@@ -14,17 +14,34 @@ export const FilmsDetails = ({filmIndex}) => {
 
 
     useEffect(() => {
-    film.length === 0 ? <Spinner/>
+    !film ? <Spinner/>
     : promisesAll( 
       {
-        starships: film.starships, 
-        planets: film.planets, 
-        vehicles: film.vehicles,
-        species: film.species,
-        characters: film.characters
+        starships: film?.starships, 
+        planets: film?.planets, 
+        vehicles: film?.vehicles,
+        species: film?.species,
+        characters: film?.characters
       }
     )
     } , [film] )
+
+    // useEffect(() => {
+    //     if (!film.length === 0) {
+    //       promisesAll( 
+    //         {
+    //           starships: film.starships, 
+    //           planets: film.planets, 
+    //           vehicles: film.vehicles,
+    //           species: film.species,
+    //           characters: film.characters
+    //         }
+    //       )
+    //     } else {
+    //       <Spinner/>
+    //     }
+        
+    //   } , [film] )
 
     const fetchFilm = id => {
         fetch(`https://swapi.dev/api/films/${id}/`)
@@ -56,15 +73,15 @@ export const FilmsDetails = ({filmIndex}) => {
 
     return<>
   <div className="card text-dark bg-light mb-3">
-  <div className="card-header"><h5>{ film.title }</h5></div>
+  <div className="card-header"><h5>{ film?.title }</h5></div>
   <div className="card-body">
     <h5 className="card-title">Directed by</h5>
     <p className="card-text">
-        {film.director}
-        {film.producer}
+        {film?.director}
+        {film?.producer}
     </p>
     <h5 className='card-title'>Release date</h5>
-    <p className='card-text'>{film.release_date}</p>
+    <p className='card-text'>{film?.release_date}</p>
   </div>
 </div>
   <div className="card text-white bg-dark mb-3" >
