@@ -94,31 +94,31 @@ export const FilmsDetails = ({filmIndex}) => {
 <div className="card text-white bg-dark mb-3" >
   <div className="card-header">Starships </div>
   <div className="card-body">
-  {/* {starships ? starships.map((res, i) => {
-        return (
-            <span key={i}>{res.name} , </span>
-        )
-    }) : <Spinner/>} */}
+  {!data.starships ? <Spinner/> : data.starships.map((res, i) => {
+          return (
+            <span key={i}>{res.name}</span>
+          )
+        })}
   </div>
 </div>
 <div className="card text-white bg-dark mb-3" >
   <div className="card-header">Vehicles</div>
   <div className="card-body">
-  {/* {vehicles ? vehicles.map((res, i) => {
-        return (
-            <span key={i}>{res.name} , </span>
-        )
-    }) : <Spinner/>} */}
+  {!data.vehicles ? <Spinner/> : data.vehicles.map((res, i) => {
+          return (
+            <span key={i}>{res.name}</span>
+          )
+        })}
   </div>
 </div>
 <div className="card text-white bg-dark mb-3" >
   <div className="card-header">Species</div>
   <div className="card-body">
-  {/* {species ? species.map((res, i) => {
-        return (
-            <span key={i}>{res.name} , </span>
-        )
-    }) : <Spinner/>} */}
+  {!data.species ? <Spinner/> : data.species.map((res, i) => {
+          return (
+            <span key={i}>{res.name}</span>
+          )
+        })}
   </div>
 </div>
 </>
