@@ -13,20 +13,18 @@ export const FilmsDetails = ({filmIndex}) => {
     }, [filmIndex])
 
 
-
     useEffect(() => {
-      promisesAll( 
-        {
-          starships: film.starships, 
-          planets: film.planets, 
-          vehicles: film.vehicles,
-          species: film.species,
-          characters: film.characters
-        }
-      )
-    }, [film] )
-
-    console.log('jhhjjhj',film);
+    film.length === 0 ? <Spinner/>
+    : promisesAll( 
+      {
+        starships: film.starships, 
+        planets: film.planets, 
+        vehicles: film.vehicles,
+        species: film.species,
+        characters: film.characters
+      }
+    )
+    } , [film] )
 
     const fetchFilm = id => {
         fetch(`https://swapi.dev/api/films/${id}/`)
@@ -34,10 +32,9 @@ export const FilmsDetails = ({filmIndex}) => {
         .then(res => setFilm(res))
     }
 
+
+
   const  promisesAll = object => {
-    if (film.length === 0) {
-      return <Spinner/>
-    }
    Promise.all(
       Object.values(object).map((urls, index) => {
         return Promise.all(urls.map(url => {
@@ -86,7 +83,7 @@ export const FilmsDetails = ({filmIndex}) => {
   <div className="card-body">
   {!data.planets ? <Spinner/> : data.planets.map((res, i) => {
           return (
-            <span key={i}>{res.name}</span>
+            <span key={i}>{res.name} </span>
           )
         })}
   </div>
@@ -96,7 +93,7 @@ export const FilmsDetails = ({filmIndex}) => {
   <div className="card-body">
   {!data.starships ? <Spinner/> : data.starships.map((res, i) => {
           return (
-            <span key={i}>{res.name}</span>
+            <span key={i}>{res.name} </span>
           )
         })}
   </div>
@@ -106,7 +103,7 @@ export const FilmsDetails = ({filmIndex}) => {
   <div className="card-body">
   {!data.vehicles ? <Spinner/> : data.vehicles.map((res, i) => {
           return (
-            <span key={i}>{res.name}</span>
+            <span key={i}>{res.name} </span>
           )
         })}
   </div>
@@ -116,7 +113,7 @@ export const FilmsDetails = ({filmIndex}) => {
   <div className="card-body">
   {!data.species ? <Spinner/> : data.species.map((res, i) => {
           return (
-            <span key={i}>{res.name}</span>
+            <span key={i}>{res.name} </span>
           )
         })}
   </div>
